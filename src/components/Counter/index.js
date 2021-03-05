@@ -9,7 +9,7 @@ const Counter = (props) => {
   const handleChange = useCallback(({ target }) => {
     if (target.value !== '') {
     if (target.value > -1 && target.value < 11 )
-    dispatch({ type: 'GET_VALUE', payload: { increment: parseInt(target.value) }})
+    dispatch({ type: 'GET_VALUE', payload: { increment: +target.value }})
     }
   }, [ dispatch ])
 
@@ -22,7 +22,6 @@ const Counter = (props) => {
       dispatch({ type: 'DECREMENT', payload: { counter: state.increment }})
   }, [ state, dispatch ])
 
-  console.log()
   return (
    <Flex width={1}>
     <CounterCurrent
